@@ -3,10 +3,7 @@ services:
     name: career-path-backend
     runtime: python
     pythonVersion: 3.11.7
-    buildCommand: >
-      pip install -r career_path_backend/requirements.txt &&
-      cd career_path_backend &&
-      python manage.py collectstatic --noinput
+    buildCommand: bash build.sh
     startCommand: >
       cd career_path_backend &&
       gunicorn career_path_backend.wsgi:application --bind 0.0.0.0:$PORT --workers 2
