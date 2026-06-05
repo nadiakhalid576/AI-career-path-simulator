@@ -12,9 +12,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-vaus!zgy0^6c20%4lt(%0625fhr!dv)vn=fgksstr_#@cr$qo0')
 
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+# Debug mode - False in production
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','localhost:5174','localhost:5173','https://ai-career-path-simulator.netlify.app/', 'ai-career-path-simulator.netlify.app',"ai-career-path-simulator.onrender.com",".onrender.com",]
+# Allowed hosts for production
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'localhost:5174',
+    'localhost:5173',
+    'ai-career-path-simulator.netlify.app',
+    'ai-career-path-simulator.onrender.com',
+    '.onrender.com',
+]
+
+# Add any additional hosts from environment
+if os.getenv('ALLOWED_HOSTS'):
+    ALLOWED_HOSTS.extend(os.getenv('ALLOWED_HOSTS', '').split(','))
 
 # Application definition
 INSTALLED_APPS = [
@@ -35,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Must be at the top
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,7 +101,9 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
