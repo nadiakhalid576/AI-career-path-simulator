@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-vaus!zgy0^6c20%4lt(%0625fh
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','localhost:5174','localhost:5173','https://ai-career-path-simulator.netlify.app/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','localhost:5174','localhost:5173','https://ai-career-path-simulator.netlify.app/', 'ai-career-path-simulator.netlify.app',"ai-career-path-simulator.onrender.com",".onrender.com",]
 
 # Application definition
 INSTALLED_APPS = [
