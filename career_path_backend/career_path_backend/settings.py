@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-vaus!zgy0^6c20%4lt(%0625fh
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','localhost:5174','localhost:5173']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','localhost:5174','localhost:5173','https://ai-career-path-simulator.netlify.app/']
 
 # Application definition
 INSTALLED_APPS = [
@@ -107,6 +107,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React default
     "http://127.0.0.1:5173",
     "http://127.0.0.1:3000",
+    "https://ai-career-path-simulator.netlify.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
