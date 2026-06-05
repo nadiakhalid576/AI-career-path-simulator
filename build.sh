@@ -1,11 +1,17 @@
 #!/bin/bash
 set -e
 
+# Navigate to backend directory
+cd career_path_backend
+
+echo "==> Current directory: $(pwd)"
+echo "==> Files in current directory:"
+ls -la
+
 echo "==> Installing Python dependencies..."
-pip install -r career_path_backend/requirements.txt
+pip install -r requirements.txt
 
 echo "==> Collecting static files..."
-cd career_path_backend
 python manage.py collectstatic --noinput
 
 echo "==> Build completed successfully!"
