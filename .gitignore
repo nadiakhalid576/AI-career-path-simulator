@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+*.egg-info/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/media/
+career_path_backend/media/
+
+# Env files (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+*.local
+
+# Build / coverage
+build/
+coverage/
+*.log
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Project-specific
+frontend/frontend.md
+frontend/documents.md
